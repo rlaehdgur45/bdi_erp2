@@ -18,7 +18,7 @@ String pwd ="bditest";
 Class.forName(driver);
 Connection con = DriverManager.getConnection(url,id,pwd);
 out.println("디비 접속 완료!!");
-
+ 
 String sql = "insert into user_info(uiName,uiId,uiPwd,uiDesc,uiAge,diNo)";
 sql+= "values (?,?,?,?,?,?)";
 PreparedStatement ps = con.prepareStatement(sql);

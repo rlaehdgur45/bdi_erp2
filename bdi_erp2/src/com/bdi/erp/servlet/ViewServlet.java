@@ -19,5 +19,6 @@ public class ViewServlet extends HttpServlet {
 
 		doGet(request, response);
 	}
-
+ 
 }
+  
