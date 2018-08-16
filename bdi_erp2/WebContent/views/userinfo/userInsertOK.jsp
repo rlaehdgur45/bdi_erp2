@@ -14,7 +14,7 @@ String driver="org.mariadb.jdbc.Driver";
 String url="jdbc:mariadb://localhost:3306/bdi";
 String id = "bdi";
 String pwd ="bditest";
-
+ 
 Class.forName(driver);
 Connection con = DriverManager.getConnection(url,id,pwd);
 out.println("디비 접속 완료!!");

@@ -49,7 +49,7 @@
 				 alert(objs[i].name + "의 값을 확인 해주세요");
 				 objs[i].focus();
 				 return false;
-			 } 
+			 }  
 		 }
 		 else{
 			 if(objs[i].value<1){

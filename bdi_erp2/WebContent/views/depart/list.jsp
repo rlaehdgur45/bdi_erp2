@@ -13,7 +13,7 @@ if(age!=null){
 	int a= Integer.parseInt(age);
 	if(a < 10){
 		out.print("유아입니다<br>");
-	}
+	} 
 	else if(a<20){
 		out.print("10대 입니다<br>");
 	}
