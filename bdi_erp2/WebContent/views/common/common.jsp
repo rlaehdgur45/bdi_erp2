@@ -7,7 +7,7 @@ String title = "빅데이터 테스트 프로젝트";
 %>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 	<mata charset="utf-8">
 	<title><%=title%></title>
 </head>

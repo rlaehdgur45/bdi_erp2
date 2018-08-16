@@ -14,7 +14,7 @@ public class ViewServlet extends HttpServlet {
 		String uri = request.getRequestURI();
 		System.out.println(uri);
 	}
-
+ 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doGet(request, response);

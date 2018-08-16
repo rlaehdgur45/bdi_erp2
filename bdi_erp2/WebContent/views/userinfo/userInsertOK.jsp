@@ -30,7 +30,7 @@ ps.setString(5, uiAge);
 ps.setString(6, diNo);
 int cnt= ps.executeUpdate();
 if(cnt==1){
-%>
+%> 
 <script>
 	alert("유저등록이 정상적으로 이루어 졌습니다.");
 	location.href="<%=rPath %>/views/userinfo/userList.jsp";

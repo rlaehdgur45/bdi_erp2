@@ -57,7 +57,7 @@
 				 objs[i].focus();
 				 return false;
 			 }
-		 }
+		 } 
 	 }
 	 var obj=document.querySelector('textarea');
 	 if(obj.value.length>=2000){

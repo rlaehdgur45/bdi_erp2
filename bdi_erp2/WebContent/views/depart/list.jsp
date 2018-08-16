@@ -24,7 +24,7 @@ if(age!=null){
 		out.print("30대 입니다<br>");
 	}
 	else if(a<50){
-		out.print("40대 입니다<br>");
+		out.print("40대 입니다<br>") ;
 	}
 	else if(a<60){
 		out.print("50대 입니다<br>");

@@ -3,6 +3,6 @@
 <%@ include file ="/views/common/common.jsp"%>
 <body>
 안녕하세요.<br>
-
+ 
 </body>
 </html>

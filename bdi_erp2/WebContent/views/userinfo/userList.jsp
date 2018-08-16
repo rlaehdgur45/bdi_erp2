@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="/views/common/common.jsp"%>
 <body>
-
+ 
 </body>
 </html>
