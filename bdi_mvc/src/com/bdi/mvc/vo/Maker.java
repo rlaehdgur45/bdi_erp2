@@ -57,6 +57,8 @@ public class Maker {
 		return "Maker [mnum=" + mnum + ", mname=" + mname + ", mprice=" + mprice + ", mcnt=" + mcnt + ", mtotal="
 				+ mtotal + ", mdesc=" + mdesc + "]";
 	}
-	
+	/*alt+ c
+	alt + t
+	alt + g*/
 	
 }

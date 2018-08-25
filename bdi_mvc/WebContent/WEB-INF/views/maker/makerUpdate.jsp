@@ -11,29 +11,33 @@
 </c:if>
 <body>
 	<div class="container">
-	<h4>메이커등록</h4>
-	<form action="/maker/makerInsert" method="post">
+	<form action="/maker/makerUpdate" method="post">
 		<table class="table table-bordered">
 			<tr>
+				<td>번호</td>
+				<td>${maker.mnum}</td>
+			</tr>
+			<tr>
 				<th>메이커명</th>
-				<td><input type="text" name="mName"></td>
+				<td><input type="text" name="mName" value="${maker.mname}"></td>
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td><input type="text" name="mPrice"></td>
+				<td><input type="number" name="mPrice" value="${maker.mprice}"></td>
 			</tr>
 			<tr>
 				<th>수량</th>
-				<td><input type="text" name="mCnt"></td>
+				<td><input type="number" name="mCnt" value="${maker.mcnt}"></td>
 			</tr>
 			<tr>
 				<th>상세 설명</th>
-				<td><input type="text" name="mDesc"></td>
+				<td><input type="text" name="mDesc" value="${maker.mdesc}"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button>메이커등록</button></td>
+				<td colspan="2"><button>메이커수정</button></td>
 			</tr>
 		</table>
+		<input type="hidden" type="number" name="mNum" value="${maker.mnum}">
 	</form>
 	</div>
 </body>

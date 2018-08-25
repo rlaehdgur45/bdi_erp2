@@ -1,84 +1,41 @@
-<%@page import="java.util.Map"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file ="/WEB-INF/views/common/common.jsp"%>
-<style>
-	tr>th{
-		text-align:center;
-	}
-	tr>td{
-		text-align:center;
-		cursor:pointer;
-	}
-</style>
 <body>
-유저리스트<br>
-<%-- <%=request.getAttribute("list")%> --%>
 <div class="container">
-	<table class ="table table-bordered table-hover">
-		<thead>
-			<tr>
-				<th><input type="checkbox" name ="allChk"></th>
-				<th>번호</th>
-				<th>이름</th>
-				<th>나이</th>
-			</tr>
-		</thead>
-		<tbody>
-		<%
-		List<Map<String,String>> list = (List<Map<String,String>>)request.getAttribute("list");
-	/* 	for(int i=0;i<10;i++){
-			out.println("<tr>");
-			out.println("<td>"+list.get(i).get("name"));
-			out.println("</td>");
-			out.println("<td>"+list.get(i).get("age"));
-			out.println("</td>");
-			out.println("</tr>");
-		} */
-		for(Map<String,String>map : list){
-		%>
-			<tr onclick="goPage(event,<%= map.get("num")%>)">
-				<td><input type="checkbox" name ="delChk" value="<%=map.get("num")%>"></td>
-				<td><%= map.get("num") %></td>
-				<td><%= map.get("name") %></td>
-				<td><%= map.get("age") %></td>
-			</tr>
-		<%
+		<h4>유저리스트</h4>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>사용자번호</th>
+					<th>이름</th>
+					<th>아이디</th>
+					<th>비밀번호</th>
+					<th>내용</th>
+					<th>나이</th>
+					<th>번호</th>
+				</tr>
+			</thead>
+			<tbody>
+			 <c:forEach items="${list}" var ="s">
+				<tr>
+					<th><a href="/user/userView?uiNo=${s.uino}">${s.uino}</th>
+					<th>${s.uiname}</th>
+					<th>${s.uiid}</th>
+					<th>${s.uipwd}</th>
+					<th>${s.uidesc}</th>
+					<th>${s.uiage}</th>
+					<th>${s.dino}</th>
+				</tr>
+			 </c:forEach>
+			</tbody>
+		</table>
+		<button omclick ="goPage()">등록하기</button>
+	</div>
+	<script>
+		function goPage(){
+			location.href = "/views/user/userInsert";
 		}
-		%>
-		</tbody>
-	</table>
-	<button onclick="deleteDel()">삭제하기</button>
-	<button onclick="move()">데이터등록</button>
-</div>
-<script>
-	function move(){
-		location.href="/views/user/userInsert";
-	}
-	function goPage(e,num){
-		if(e.target.type==='checkbox'){
-			return;
-		}
-		if(e.target.firstChild.type ==='checkbox'){
-			return;
-		}
-		location.href = "/user/userView?num=" + num;
-	}
-	function deleteDel(){
-		var chks = document.querySelectorAll('input[name=delChk]:checked');
-		if(chks.length == 0){
-			alert('삭제할 데이터를 선택해주세요');
-			return;
-		}
-		var param = '?';
-		for(var i=0;i<chks.length;i++){
-			param += 'num=' + chks[i].value +'&';
-		}
-		alert(param);
-		location.href='/user/userDelete' +param;
-	}
-
-</script>
+	</script>
 </body>
 </html>
