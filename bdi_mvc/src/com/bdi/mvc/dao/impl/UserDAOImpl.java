@@ -92,7 +92,32 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public int insertUser(User us) {
-		// TODO Auto-generated method stub
+		Connection con = DBCon.getCon();
+		PreparedStatement ps = null;
+		String sql = "insert into user(uiName, uiId, uiPwd, uiDesc, uiAge, diNo)";
+		sql += "values(?,?,?,?,?,?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, us.getUiname());
+			ps.setString(2, us.getUiid());
+			ps.setString(3, us.getUipwd());
+			ps.setString(4, us.getUidesc());
+			ps.setString(5, us.getUidesc());
+			ps.setInt(6, us.getUiage());
+			ps.setInt(7, us.getDino());
+			return ps.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(ps!=null) {
+					ps.close();
+				}
+			}catch(SQLException e) {
+				
+			}
+			DBCon.close();
+		}
 		return 0;
 	}
 
@@ -125,8 +150,20 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public int deleteUser(User us) {
-		// TODO Auto-generated method stub
+		Connection con = DBCon.getCon();
+		String sql = "delete from user " +
+				"where uiNo=?" ;
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			return ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBCon.close();
+		}
 		return 0;
 	}
+
 
 }

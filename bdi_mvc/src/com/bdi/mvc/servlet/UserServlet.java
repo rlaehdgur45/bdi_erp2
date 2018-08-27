@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bdi.mvc.service.UserService;
 import com.bdi.mvc.service.impl.UserServiceImpl;
+import com.bdi.mvc.vo.Maker;
 import com.bdi.mvc.vo.User;
 
 
@@ -69,9 +70,31 @@ public class UserServlet extends HttpServlet {
 					Integer.parseInt("diNo")
 					);
 			request.setAttribute("rMap",us.UpdateUser(ur));
-			
-			
+		}else if(cmd.equals("userInsert")) {
+			String uiName = request.getParameter("uiName");
+			String uiId = request.getParameter("uiId");
+			String uiPwd = request.getParameter("uiPwd");
+			String uiDesc = request.getParameter("uiDesc");
+			String uiAge = request.getParameter("uiAge");
+			String diNo = request.getParameter("diNo");
+			User ur = new User(0,
+					uiName,
+					uiId,
+					uiPwd,
+					uiDesc,
+					Integer.parseInt("uiAge"),
+					Integer.parseInt("diNo")
+					);
+			request.setAttribute("rMap", us.insertUser(ur));
+		}else if(cmd.equals("makerDelete")) {
+			String uiNo = request.getParameter("uiNo");
+			User ur = new User(Integer.parseInt(uiNo),null,null,null,null,0,0);
+			request.setAttribute("rMap", us.deleteUser(ur));
+			uri = "/views/user/userView";
 		}
+		RequestDispatcher rd = request.getRequestDispatcher(uri);
+		rd.forward(request, response);
 	}
+	
 
 }
