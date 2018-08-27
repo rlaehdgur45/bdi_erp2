@@ -61,13 +61,13 @@ public class UserServlet extends HttpServlet {
 			String uiAge = request.getParameter("uiAge");
 			String diNo = request.getParameter("diNo");
 			
-			User ur= new User(Integer.parseInt("uiNo"),
+			User ur= new User(Integer.parseInt(uiNo),
 					uiName,
 					uiId,
 					uiPwd,
 					uiDesc,
-					Integer.parseInt("uiAge"),
-					Integer.parseInt("diNo")
+					Integer.parseInt(uiAge),
+					Integer.parseInt(diNo)
 					);
 			request.setAttribute("rMap",us.UpdateUser(ur));
 		}else if(cmd.equals("userInsert")) {
@@ -82,8 +82,8 @@ public class UserServlet extends HttpServlet {
 					uiId,
 					uiPwd,
 					uiDesc,
-					Integer.parseInt("uiAge"),
-					Integer.parseInt("diNo")
+					Integer.parseInt(uiAge),
+					Integer.parseInt(diNo)
 					);
 			request.setAttribute("rMap", us.insertUser(ur));
 		}else if(cmd.equals("makerDelete")) {

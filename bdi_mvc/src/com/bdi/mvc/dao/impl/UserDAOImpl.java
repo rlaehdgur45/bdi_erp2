@@ -94,7 +94,7 @@ public class UserDAOImpl implements UserDAO {
 	public int insertUser(User us) {
 		Connection con = DBCon.getCon();
 		PreparedStatement ps = null;
-		String sql = "insert into user(uiName, uiId, uiPwd, uiDesc, uiAge, diNo)";
+		String sql = "insert into user_info(uiName, uiId, uiPwd, uiDesc, uiAge, diNo)";
 		sql += "values(?,?,?,?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
@@ -102,9 +102,8 @@ public class UserDAOImpl implements UserDAO {
 			ps.setString(2, us.getUiid());
 			ps.setString(3, us.getUipwd());
 			ps.setString(4, us.getUidesc());
-			ps.setString(5, us.getUidesc());
-			ps.setInt(6, us.getUiage());
-			ps.setInt(7, us.getDino());
+			ps.setInt(5, us.getUiage());
+			ps.setInt(6, us.getDino());
 			return ps.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -126,11 +125,13 @@ public class UserDAOImpl implements UserDAO {
 		Connection con = DBCon.getCon();
 		String sql = "update user_info\r\n" +
 				"set uiName=?, "+
-				"uiId=?," +
-				"uiPwd=?," +
-				"uiDesc=?," +
-				"uiAge=?," +
-				"diNo=?";
+				" uiId=?," +
+				" uiPwd=?," +
+				" uiDesc=?," +
+				" uiAge=?," +
+				" diNo=? " +
+				" where uiNo =?";
+		
 		try {
 			PreparedStatement ps =con.prepareStatement(sql);
 			ps.setString(1, us.getUiname());
@@ -139,7 +140,9 @@ public class UserDAOImpl implements UserDAO {
 			ps.setString(4, us.getUidesc());
 			ps.setInt(5, us.getUiage());
 			ps.setInt(6, us.getDino());
+			ps.setInt(7, us.getUino());
 			return ps.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -151,7 +154,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int deleteUser(User us) {
 		Connection con = DBCon.getCon();
-		String sql = "delete from user " +
+		String sql = "delete from user_info " +
 				"where uiNo=?" ;
 		
 		try {

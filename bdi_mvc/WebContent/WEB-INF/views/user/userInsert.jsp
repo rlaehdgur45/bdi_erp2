@@ -5,7 +5,7 @@
 <script>
 	alert('${rMap.msg}');
 	if('${rMap.success}' == 'true'){
-		location.href="/maker/makerList";
+		location.href="/user/userList";
 	}
 </script>	
 </c:if>
@@ -25,7 +25,7 @@
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="hidden" type="password" name="uiPwd" ></td>
+					<td><input type="text" type="password" name="uiPwd" ></td>
 				</tr>
 				<tr>
 					<th>내용</th>

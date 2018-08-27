@@ -27,16 +27,7 @@ public class MakerServiceImpl implements MakerService {
 
 	@Override
 	public Map<String, Object> insertMaker(Maker mk) {
-		/*Map<String, Object> rMap = new HashMap<String,Object>();
-		rMap.put("msg", "메이커 등록 오류!");
-		rMap.put("success", "false");
-		if(mdao.insertMaker(mk)==2) {
-			if(mdao.updateMakerTotal(mk.getMnum())==1) {
-			rMap.put("msg", "정상적으로 등록 되었습니다.");
-			rMap.put("success", "true");
-			}
-		}
-		return rMap;*/
+		
 		Map<String, Object> rMap = new HashMap<String,Object>();
 		rMap.put("msg", "메이커 등록 오류!");
 		rMap.put("success", "false");
@@ -70,7 +61,7 @@ public class MakerServiceImpl implements MakerService {
 		int cnt = mdao.deleteMaker(mk);
 		if(cnt==1) {
 			
-			rMap.put("msg", "수정성공!");
+			rMap.put("msg", "삭제성공!");
 			rMap.put("success", "true");
 			
 		}

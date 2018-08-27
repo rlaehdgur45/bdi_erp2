@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -94,14 +95,20 @@ public class MakerDAOImpl implements MakerDAO {
 		PreparedStatement ps = null;
 		String sql = "insert into maker(mName, mPrice, mCnt, mTotal, mDesc)";
 		sql += "values(?,?,?,?,?)";
+		int cnt = 0;
 		try {
-			ps = con.prepareStatement(sql);
+			ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, mk.getMname());
 			ps.setInt(2, mk.getMprice());
 			ps.setInt(3, mk.getMcnt());
 			ps.setInt(4, mk.getMtotal());
 			ps.setString(5, mk.getMdesc());
-			return ps.executeUpdate();
+			cnt+= ps.executeUpdate();
+			ResultSet rs = ps.getGeneratedKeys();
+			if(rs.next()) {
+				int mNum = rs.getInt(1);
+				cnt += updateMakerTotal(mNum);
+			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -122,9 +129,9 @@ public class MakerDAOImpl implements MakerDAO {
 		Connection con = DBCon.getCon();
 		String sql = "update maker\r\n" + 
 				"set mName = ?, " +
-				"mCnt =?, " +
-				"mPrice=?, " +
-				"mDesc=? " +
+				" mCnt =?, " +
+				" mPrice=?, " +
+				" mDesc=? " +
 				"where mNum = ?";
 		
 		try {
@@ -154,6 +161,7 @@ public class MakerDAOImpl implements MakerDAO {
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, mk.getMnum());
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -173,6 +181,7 @@ public class MakerDAOImpl implements MakerDAO {
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, mNum);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

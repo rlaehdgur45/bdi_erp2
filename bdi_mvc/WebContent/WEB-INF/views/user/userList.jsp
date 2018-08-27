@@ -30,11 +30,13 @@
 			 </c:forEach>
 			</tbody>
 		</table>
-		<button omclick ="goPage()">등록하기</button>
+		<button onclick ="goPage()">등록하기</button>
+
 	</div>
 	<script>
 		function goPage(){
-			location.href = "/views/user/userInsert";
+			location.href="/views/user/userInsert";
+			
 		}
 	</script>
 </body>

@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 		Map<String, Object> rMap = new HashMap<String,Object>();
 		rMap.put("msg", "메이커 등록 오류!");
 		rMap.put("success", "false");
-		if(udao.insertUser(us)==2) {
+		if(udao.insertUser(us)==1) {
 			rMap.put("msg", "정상적으로 등록 되었습니다.");
 			rMap.put("success", "true");
 		}
@@ -57,7 +57,6 @@ public class UserServiceImpl implements UserService {
 		rMap.put("success", "false");
 		int cnt = udao.deleteUser(us);
 		if(cnt==1) {
-			
 			rMap.put("msg", "수정성공!");
 			rMap.put("success", "true");
 			

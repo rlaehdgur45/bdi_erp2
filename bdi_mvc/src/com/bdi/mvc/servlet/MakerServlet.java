@@ -19,9 +19,7 @@ public class MakerServlet extends HttpServlet {
 	private MakerService ms = new MakerServiceImpl();
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*response.setContentType("test/html : charset=utf-8");
-		response.getWriter().append("Served at:" + " 와아아아아아~").append(request.getContextPath());*/
-		
+
 		String uri = "/views" + request.getRequestURI();
 		String cmd = uri.substring(uri.lastIndexOf("/")+1);
 		if(cmd.equals("makerList")) {

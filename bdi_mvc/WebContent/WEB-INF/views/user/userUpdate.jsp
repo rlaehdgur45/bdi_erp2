@@ -5,7 +5,7 @@
 <script>
 	alert('${rMap.msg}');
 	if('${rMap.success}' == 'true'){
-		location.href="/maker/makerList";
+		location.href="/user/userList";
 	}
 </script>	
 </c:if>

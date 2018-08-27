@@ -5,7 +5,7 @@
 <script>
 	alert('${rMap.msg}');
 	if('${rMap.success}' == 'true'){
-		location.href="/maker/makerList";
+		location.href="/user/userList";
 	}
 </script>	
 </c:if>
@@ -48,7 +48,6 @@
 					<button type="button" data-page='/user/userUpdate?uiNo=${user.uino}'>수정</button>
 					<button>삭제</button>
 					<input type="hidden" type="number" name="uiNo" value="${user.uino}">
-					
 					</form>
 					</td>
 				</tr>
