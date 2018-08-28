@@ -7,7 +7,7 @@
 	if('${rMap.success}' == 'true'){
 		location.href="/user/userList";
 	}
-</script>	
+</script>
 </c:if>
 <body>
 <div class="container">
