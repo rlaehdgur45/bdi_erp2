@@ -19,7 +19,7 @@
 			<tbody>
 			 <c:forEach items="${list}" var ="s">
 				<tr>
-					<th><a href="/user/userView?uiNo=${s.uino}">${s.uino}</th>
+					<th><a href="/user/userView?uiNo=${s.uino}">${s.uino}</a></th>
 					<th>${s.uiname}</th>
 					<th>${s.uiid}</th>
 					<th>${s.uipwd}</th>

@@ -5,45 +5,44 @@
 <script>
 	alert('${rMap.msg}');
 	if('${rMap.success}' == 'true'){
-		location.href="/user/userList";
+		location.href="/gameChart/gameCharList";
 	}
 </script>	
 </c:if>
 <body>
 <div class="container">
-		<h4>유저Insert</h4>
-		<form action="/user/userInsert" method="post">
+		<form action="/gameChart/gameChartInsert" method="post">
 		<table class="table table-bordered">
 				
 				<tr>
-					<th>이름</th>
-					<td><input type="text" name="uiName" ></td>
+					<th>게임이름</th>
+					<td><input type="text" name="gcName" ></td>
 				</tr>
 				<tr>
-					<th>아이디</th>
-					<td><input type="text" name="uiId" ></td>
+					<th>게임가격</th>
+					<td><input type="number" name="gcPrice" ></td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
-					<td><input type="text" type="password" name="uiPwd" ></td>
+					<th>배급사</th>
+					<td><input type="text"  name="gcVendor" ></td>
 				</tr>
 				<tr>
-					<th>내용</th>
-					<td><input type="text" name="uiDesc"></td>
+					<th>게임주문번호</th>
+					<td><input type="number" name="gcOrder"></td>
 				</tr>
 				<tr>
-					<th>나이</th>
-					<td><input type="number" name="uiAge"></td>
+					<th>게임설명</th>
+					<td><input type="text" name="gcDesc"></td>
 				</tr>
 				<tr>
-					<th>번호</th>
-					<td><input type="number" name="diNo" ></td>
+					<th>게임이미지</th>
+					<td><input type="text" name="gcImg" ></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 					<button>등록</button></td>
 				</tr>
-			</table>A
+			</table>
 			
 		</form>
 	</div>

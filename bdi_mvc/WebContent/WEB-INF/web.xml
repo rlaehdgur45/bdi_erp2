@@ -28,18 +28,24 @@
     <servlet-name>MakerServlet</servlet-name>
     <url-pattern>/maker/*</url-pattern>
   </servlet-mapping>
-  
   <error-page>
     <error-code>404</error-code>
     <location>/WEB-INF/views/error/notFound.jsp</location>
   </error-page>
   <servlet>
-  	<servlet-name>DepartServlet</servlet-name>
-  	<servlet-class>com.bdi.mvc.servlet.DepartServlet</servlet-class>
+    <servlet-name>DepartServlet</servlet-name>
+    <servlet-class>com.bdi.mvc.servlet.DepartServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>DepartServlet</servlet-name>
-  	<url-pattern>/depart/*</url-pattern>
+    <servlet-name>DepartServlet</servlet-name>
+    <url-pattern>/depart/*</url-pattern>
   </servlet-mapping>
-
+    <servlet>
+    <servlet-name>GameChartServlet</servlet-name>
+    <servlet-class>com.bdi.mvc.servlet.GameChartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GameChartServlet</servlet-name>
+    <url-pattern>/gameChart/*</url-pattern>
+  </servlet-mapping>
 </web-app>
