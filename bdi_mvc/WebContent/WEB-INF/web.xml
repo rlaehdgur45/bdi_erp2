@@ -40,7 +40,7 @@
     <servlet-name>DepartServlet</servlet-name>
     <url-pattern>/depart/*</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>GameChartServlet</servlet-name>
     <servlet-class>com.bdi.mvc.servlet.GameChartServlet</servlet-class>
   </servlet>
