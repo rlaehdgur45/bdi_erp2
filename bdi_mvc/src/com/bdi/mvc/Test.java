@@ -1,50 +1,51 @@
 package com.bdi.mvc;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.io.InputStream;
 
-class FileItem{
-	String name;
-	String string;
-	
-	public String getName() {
-		return name;
-	}
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
-	public String getString() {
-		return string;
-	}
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
-	public void setString(String string) {
-		this.string = string;
-	}
-}
+
+
+
+
 public class Test {
+	
+	
 	public static void main (String[] args) {
-		List<FileItem>  fList = new ArrayList<FileItem>();
-		FileItem fi = new FileItem();
-		fi.setName("gcName");
-		fi.setString("카트라이더");
-		fList.add(fi);
+		String path = "/config/food.xml";
+		DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
 		
-		fi= new FileItem();
-		fi.setName("gcPrice");
-		fi.setString("10000");
-		fList.add(fi);
-		
-		
-		
-		Map<String,String> param = new HashMap<String,String>();
-		for(FileItem ff:fList) {
-			param.put(ff.getName(), ff.getString());
+		try {
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			InputStream is = Test.class.getResourceAsStream(path);
+			Document document = db.parse(is);
 			
+			NodeList foods = document.getElementsByTagName("foods");
+			for(int i= 0; i<foods.getLength();i++) {
+				Node food = foods.item(i);
+				System.out.println(food.getTextContent());
+			}
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+			
+		} catch (SAXException e) {
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		System.out.println(param.get("gcName"));
+		
 	}
+	
+	
 }
